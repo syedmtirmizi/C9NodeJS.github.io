@@ -1,5 +1,7 @@
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
+const fs = require('fs')
+
 function renderLicenseBadge(data) {
   const licenseType = data.license;
 
@@ -17,21 +19,80 @@ function renderLicenseBadge(data) {
     licenseString = `![License: ISC](https://img.shields.io/badge/License-ISC-green.svg)`
   };
 
+  if (licenseType === 'GNU GPLv2') {
+    licenseString = `![License: GNU GPLv2](https://img.shields.io/badge/License-GPLv2-blue.svg)`
+  };
+
   if (licenseType === 'GNU GPLv3') {
     licenseString = `![License: GNU GPLv3](https://img.shields.io/badge/License-GPLv3-blue.svg)`
+  };
+  if (licenseType === 'No License') {
+    licenseString = ''
   };
 
   return licenseString;
 };
 
-
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
-function renderLicenseLink(license) {}
+function renderLicenseLink(license) {
+
+}
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
-function renderLicenseSection(license) {}
+function renderLicenseSection(data) {
+  const licenseType = data.license;
+
+  var licenseString = ' '
+
+  if (licenseType === 'MIT') {
+    licenseString = `[MIT License]('MIT.txt)`
+    // fs.readFile('MIT.txt', (err, data) => {
+    //   if (err) throw err;
+
+    //   console.log(data.toString());
+    // });
+  };
+
+  if (licenseType === 'Apache 2.0') {
+    licenseString = fs.readFile('Apache2.0.txt', (err, data) => {
+      if (err) throw err;
+    
+      console.log(data.toString());
+  });
+  };
+
+  if (licenseType === 'ISC') {
+    licenseString = fs.readFile('ISC.txt', (err, data) => {
+      if (err) throw err;
+    
+      console.log(data.toString());
+  });
+  };
+
+  if (licenseType === 'GNU GPLv2') {
+    licenseString = fs.readFile('GNU2.txt', (err, data) => {
+      if (err) throw err;
+    
+      console.log(data.toString());
+  });
+  };
+
+  if (licenseType === 'GNU GPLv3') {
+    licenseString = fs.readFile('GNU3.txt', (err, data) => {
+      if (err) throw err;
+    
+      console.log(data.toString());
+  });
+  };
+
+  if (licenseType === 'No License') {
+    licenseString = 'No License.'
+  };
+
+  return licenseString;
+}
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
@@ -69,7 +130,7 @@ function generateMarkdown(data) {
   E-mail: ${data.email}
 
   ## License
-  ${data.license}
+  ${renderLicenseSection(data)}
 
 `;
 }
