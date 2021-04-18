@@ -33,11 +33,6 @@ function renderLicenseBadge(data) {
   return licenseString;
 };
 
-// TODO: Create a function that returns the license link
-// If there is no license, return an empty string
-function renderLicenseLink(license) {
-
-}
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
@@ -47,7 +42,7 @@ function renderLicenseSection(data) {
   var licenseString = ' '
 
   if (licenseType === 'MIT') {
-    licenseString = `[MIT License]('MIT.txt)`
+    licenseString = `[MIT License](MIT.txt)`
     // fs.readFile('MIT.txt', (err, data) => {
     //   if (err) throw err;
 
@@ -56,35 +51,39 @@ function renderLicenseSection(data) {
   };
 
   if (licenseType === 'Apache 2.0') {
-    licenseString = fs.readFile('Apache2.0.txt', (err, data) => {
-      if (err) throw err;
+    licenseString = `[Apache 2.0 License](Apache2.0.txt)`
+  //   fs.readFile('Apache2.0.txt', (err, data) => {
+  //     if (err) throw err;
     
-      console.log(data.toString());
-  });
+  //     console.log(data.toString());
+  // });
   };
 
   if (licenseType === 'ISC') {
-    licenseString = fs.readFile('ISC.txt', (err, data) => {
-      if (err) throw err;
+    licenseString = `[ISC License](ISC.txt)`
+  //   fs.readFile('ISC.txt', (err, data) => {
+  //     if (err) throw err;
     
-      console.log(data.toString());
-  });
+  //     console.log(data.toString());
+  // });
   };
 
   if (licenseType === 'GNU GPLv2') {
-    licenseString = fs.readFile('GNU2.txt', (err, data) => {
-      if (err) throw err;
+    licenseString = `[GNU CPLv2 License](GNU2.txt)`
+  //   fs.readFile('GNU2.txt', (err, data) => {
+  //     if (err) throw err;
     
-      console.log(data.toString());
-  });
+  //     console.log(data.toString());
+  // });
   };
 
   if (licenseType === 'GNU GPLv3') {
-    licenseString = fs.readFile('GNU3.txt', (err, data) => {
-      if (err) throw err;
+    licenseString = `[GNU GPLv3 License](GNU3.txt)`
+  //   fs.readFile('GNU3.txt', (err, data) => {
+  //     if (err) throw err;
     
-      console.log(data.toString());
-  });
+  //     console.log(data.toString());
+  // });
   };
 
   if (licenseType === 'No License') {
