@@ -43,7 +43,7 @@ const questions = [
         type:'list',
         name: 'license',
         message: 'What type of license does your applicaiton use?',
-        choices: ['Community', 'MIT', 'GNU GPLv3']
+        choices: ['MIT', 'Apache 2.0', 'ISC', 'GNU GPLv3']
     },
     {
         type:'input',
@@ -59,7 +59,6 @@ const questions = [
 
 inquirer
     .prompt(questions)
-
 
 // TODO: Create a function to write README file
 .then(function (data) {
